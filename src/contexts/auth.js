@@ -4,6 +4,7 @@ export const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState();
+   
   
     useEffect(() => {
       const userToken = localStorage.getItem("user_token");
@@ -28,6 +29,7 @@ export const AuthProvider = ({ children }) => {
           const token = Math.random().toString(36).substring(2);
           localStorage.setItem("user_token", JSON.stringify({ email, token }));
           setUser({ email, password });
+
           return;
         } else {
           return "E-mail ou senha incorretos";

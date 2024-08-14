@@ -5,7 +5,6 @@ import * as C from "./styles";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 
-
 const Signin = () => {
   const { signin } = useAuth();
   const navigate = useNavigate();
@@ -28,7 +27,7 @@ const Signin = () => {
     }
     
     
-    navigate("/crud");
+    navigate("/home");
   };
 
   return (
@@ -48,7 +47,8 @@ const Signin = () => {
           onChange={(e) => [setSenha(e.target.value), setError("")]}
         />
         <C.labelError>{error}</C.labelError>
-        <Button Text="Entrar" onClick={handleLogin} />
+        <Button Link={"/crud"} Text="Entrar" onClick={handleLogin} />
+        
         <C.LabelSignup>
           Não tem uma conta?
           <C.Strong>

@@ -22,10 +22,6 @@ import {
     const handleSave = () => {
       if (!name || !categoria || !preco) return;
   
-      if (produtoAlreadyExists()) {
-        return alert("Produto já existente");
-      }
-  
       const newDataArray = Object.keys(dataEdit).length
         ? data.map((item, index) =>
             index === dataEdit.index ? { name, categoria, preco } : item
@@ -94,4 +90,3 @@ import {
   };
   
   export default ModalComp;
-  

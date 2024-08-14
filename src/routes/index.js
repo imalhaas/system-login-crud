@@ -1,13 +1,15 @@
 import { Fragment } from "react";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate, } from "react-router-dom";
 import Signin from "../pages/Home/Signin";
 import Signup from "../pages/Home/Signup";
 import useAuth from "../hooks/useAuth";
-import App from '../crud/src/App';
+import Home from "../pages/Home";
+import App from "../crud/src/App";
 
-const Private = ({ element }) => {
+const Private = ({ Item }) => {
   const { signed } = useAuth();
-  return signed ? element : <Navigate to="/crud" />;
+
+  return signed > 0 ? <Item /> : <Signin />;
 };
 
 const RoutesApp = () => {
@@ -15,7 +17,9 @@ const RoutesApp = () => {
     <BrowserRouter>
       <Fragment>
         <Routes>
-          <Route path="/crud" element={<Private element={<App />} />} />
+        <Route exact path="/home" element={<Private Item={Home} />} />
+          <Route path="/crud" element={<App />} />
+          <Route path="/" element={<Signin />} />
           <Route path="/" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="*" element={<Navigate to="/" />} />
