@@ -33,13 +33,6 @@ import {
       onClose();
     };
   
-    const produtoAlreadyExists = () => {
-      if (dataEdit.name !== name && data?.length) {
-        return data.find((item) => item.name === name);
-      }
-      return false;
-    };
-  
     return (
       <>
         <Modal isOpen={isOpen} onClose={onClose}>
