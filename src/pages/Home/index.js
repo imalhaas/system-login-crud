@@ -12,7 +12,7 @@ const Home = () => {
     <C.Container>
       <Button Text="HOME"></Button>
       <iframe
-        src="http://localhost:5174/"
+        src="http://localhost:5173/"
         title="CRUD"
         width="100%"
         height="600px"
