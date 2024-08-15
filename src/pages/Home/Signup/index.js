@@ -47,11 +47,17 @@ const Signup = () => {
           onChange={(e) => [setNome(e.target.value), setError("")]}
         />
         <Input
-          type="cpf"
-          placeholder="CPF ou CNPJ"
-          value={cpf}
-          onChange={(e) => [setCpf(e.target.value), setError("")]}
-        />
+           type="text"
+           placeholder="CPF ou CNPJ"
+           value={cpf}
+          onChange={(e) => {
+        const value = e.target.value;
+    if (/^\d*$/.test(value)) { // Verifica se o valor contém apenas números
+      setCpf(value);
+      setError("");
+    }
+  }}
+/>
 
         <Input
           type="email"
